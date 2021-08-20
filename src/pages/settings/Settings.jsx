@@ -12,9 +12,9 @@ export default function Settings() {
   const [success, setSuccess] = useState(false);
 
   const { user, dispatch } = useContext(Context);
-  const PF = "http://localhost:5000/images/"
+  const PF = "https://portfolio-blogapp.herokuapp.com/images/";
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
     dispatch({ type: "UPDATE_START" });
     const updatedUser = {
@@ -52,7 +52,7 @@ export default function Settings() {
           <label>Profile Picture</label>
           <div className="settingsPP">
             <img
-              src={file ? URL.createObjectURL(file) : PF+user.profilePic}
+              src={file ? URL.createObjectURL(file) : PF + user.profilePic}
               alt=""
             />
             <label htmlFor="fileInput">
@@ -62,26 +62,23 @@ export default function Settings() {
               type="file"
               id="fileInput"
               style={{ display: "none" }}
-              onChange={(e) => setFile(e.target.files[0])}
+              onChange={e => setFile(e.target.files[0])}
             />
           </div>
           <label>Username</label>
           <input
             type="text"
             placeholder={user.username}
-            onChange={(e) => setUsername(e.target.value)}
+            onChange={e => setUsername(e.target.value)}
           />
           <label>Email</label>
           <input
             type="email"
             placeholder={user.email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={e => setEmail(e.target.value)}
           />
           <label>Password</label>
-          <input
-            type="password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <input type="password" onChange={e => setPassword(e.target.value)} />
           <button className="settingsSubmit" type="submit">
             Update
           </button>

@@ -9,7 +9,7 @@ export default function SinglePost() {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
   const [post, setPost] = useState({});
-  const PF = "http://localhost:5000/images/";
+  const PF = "https://portfolio-blogapp.herokuapp.com/images/";
   const { user } = useContext(Context);
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
@@ -41,7 +41,7 @@ export default function SinglePost() {
         title,
         desc,
       });
-      setUpdateMode(false)
+      setUpdateMode(false);
     } catch (err) {}
   };
 
@@ -57,7 +57,7 @@ export default function SinglePost() {
             value={title}
             className="singlePostTitleInput"
             autoFocus
-            onChange={(e) => setTitle(e.target.value)}
+            onChange={e => setTitle(e.target.value)}
           />
         ) : (
           <h1 className="singlePostTitle">
@@ -91,7 +91,7 @@ export default function SinglePost() {
           <textarea
             className="singlePostDescInput"
             value={desc}
-            onChange={(e) => setDesc(e.target.value)}
+            onChange={e => setDesc(e.target.value)}
           />
         ) : (
           <p className="singlePostDesc">{desc}</p>
